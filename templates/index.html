@@ -1,0 +1,323 @@
+{% extends 'home_navbar.html' %}
+{%block title%}
+<title>Fake News Detection</title>
+
+
+<link rel="stylesheet" type="text/css" href="./static/source/css/style.css">
+<style>
+
+
+.imgslider {
+width: 450px;
+height: 350px;
+margin-top:180px;
+background-image: url("./static/source/image/image1.jpg");
+background-size: 100% 100%;
+animation: changeImage 15s linear infinite;
+
+}
+.imgslider img {
+    transition: transform 0.3s ease-in-out;
+}
+
+.imgslider img:hover {
+    transform: scale(1.1);
+}
+
+
+@keyframes changeImage {
+0% {
+    background-image: url('./static/source/image/image1.jpg');
+}
+25% {
+    background-image: url('./static/source/image/image2.jpg');
+}
+50% {
+    background-image: url('./static/source/image/image3.jpg');
+}
+75% {
+    background-image: url('./static/source/image/image4.jpg');
+}
+100% {
+    background-image: url('./static/source/image/image5.png');
+}
+}
+/*.col h1{
+margin-top:250px;
+font-size:30px;
+font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+font-weight:600;
+color:#fff;
+animation: glow 1s ease-in-out infinite alternate;
+}*/
+.c{
+  margin-top:250px;
+font-size:30px;
+font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+font-weight:600;
+color:#410040;
+animation: c 1s ease-in-out infinite alternate;
+}
+
+
+.col p{
+margin-top:40px;
+font-size:22px;
+font-family:'Times New Roman', Times, serif;
+font-weight:400;
+font-style: italic;
+
+}
+
+.col a{
+text-decoration:none;
+padding:18px 50px;
+border-radius:30px;
+background:#4f0359;
+display:inline-block;
+color:white;
+font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+font-weight:500;
+font-size:20px;
+margin-top:70px;
+box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+}
+
+.col a:hover {
+text-decoration:none;
+  background-color: #9f016a;
+  color: black;
+  border-radius: 6px;
+  transition: color 0.3s ease;
+  }
+</style>
+{%endblock%}
+{% block content %}
+
+
+<!------------------home contents-------------------------------------->
+<!--{% if not current_user.is_authenticated or current_user.account_type == 'user'%}
+ <div class="row">
+   <div class="col">
+    <h1 class="c">Fact Over Fiction – Welcome to Clarity!</h1>
+     <p>-Your one-stop solution to expose misinformation and stay ahead with reliable facts</p>
+     
+     <a href="#about-us">Know more</a>
+   </div>
+   <div class="imgslider">
+
+   </div>
+
+ </div>--->
+ {% if not current_user.is_authenticated or current_user.account_type == 'user'%}
+<div class="row">
+    <div class="col">
+        <h1 class="c" data-aos="fade-up">Fact Over Fiction – Welcome to Clarity!</h1>
+        <p data-aos="fade-up" >-Your one-stop solution to expose misinformation and stay ahead with reliable facts</p>
+        <a href="#about-us" data-aos="fade-up">Know more</a>
+    </div>
+    <div class="imgslider" data-aos="zoom-in">
+        <!-- Add your images here -->
+    </div>
+</div>
+{% endif %}
+
+
+
+<section class="about-us" id="about-us" data-aos="fade-up" > <!-- Apply AOS effect here -->
+  <div class="about">
+      <img src='static/source/image/aboutimg1.jpg' class="pic" alt="About Us Image" data-aos="zoom-in"  /> <!-- AOS for image -->
+      <div class="text" data-aos="fade-right" > <!-- AOS for text block -->
+          <h2 data-aos="fade-up"  >About Us</h2> <!-- AOS for heading -->
+          <h5 data-aos="fade-up"  >Fake news <span>Detection</span></h5> <!-- AOS for subheading -->
+          <p data-aos="fade-up"  >Uncover the truth and combat misinformation. Our platform uses advanced machine learning algorithms to detect and flag fake news, helping you stay informed with reliable information. Whether you're a researcher, journalist, or a concerned citizen, explore our tools to analyze and identify fake news effectively!</p> <!-- AOS for paragraph -->
+          <div class="data" data-aos="fade-up"  >
+              <a href="{{url_for('predict')}}" class="hire">Predict</a> <!-- AOS for link -->
+          </div>
+      </div>
+  </div>
+</section>
+
+<!------------------------ Contact Us ------------------------------------>
+
+<div class="contact_us_green" id="contact" data-aos="fade-up" > <!-- AOS for Contact Us section -->
+  <div class="responsive-container-block big-container" >
+      <div class="responsive-container-block container">
+          <div class="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-7 wk-ipadp-10 line" id="i69b-2">
+              <form class="form-box" data-aos="fade-up" > <!-- AOS for form -->
+                  <div class="container-block form-wrapper">
+                      <div class="head-text-box">
+                          <p class="text-blk contactus-head" data-aos="fade-down" >
+                              Contact us
+                          </p>
+                          <p class="text-blk contactus-subhead" data-aos="fade-down" >
+                              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                          </p>
+                      </div>
+                      <div class="responsive-container-block">
+                          <div class="responsive-cell-block wk-ipadp-6 wk-tab-12 wk-mobile-12 wk-desk-6" id="i10mt-6">
+                              <p class="text-blk input-title" >FIRST NAME</p>
+                              <input class="input" id="ijowk-6" name="FirstName" data-aos="fade-up" >
+                          </div>
+                          <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12">
+                              <p class="text-blk input-title" data-aos="fade-up" >LAST NAME</p>
+                              <input class="input" id="indfi-4" name="Last Name" data-aos="fade-up" >
+                          </div>
+                          <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12">
+                              <p class="text-blk input-title" data-aos="fade-up" >EMAIL</p>
+                              <input class="input" id="ipmgh-6" name="Email" data-aos="fade-up" >
+                          </div>
+                          <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12">
+                              <p class="text-blk input-title" data-aos="fade-up" >PHONE NUMBER</p>
+                              <input class="input" id="imgis-5" name="PhoneNumber" data-aos="fade-up" data-aos-duration="1000">
+                          </div>
+                          <div class="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-12 wk-ipadp-12" id="i634i-6">
+                              <p class="text-blk input-title" data-aos="fade-up" >COMMENT</p>
+                              <textarea class="textinput" id="i5vyy-6" placeholder="Please enter query..." data-aos="fade-up" ></textarea>
+                          </div>
+                      </div>
+                      <div class="btn-wrapper" data-aos="fade-up" >
+                          <button class="submit-btn" >Submit</button> <!-- AOS for button -->
+                      </div>
+                  </div>
+              </form>
+          </div>
+          <div class="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-5 wk-ipadp-10" id="ifgi" data-aos="fade-up" > <!-- AOS for contact info -->
+              <div class="container-box">
+                  <div class="text-content">
+                      <p class="text-blk contactus-head" data-aos="fade-down" >Contact us</p>
+                      <p class="text-blk contactus-subhead" data-aos="fade-down" ></p>
+                  </div>
+                  <div class="workik-contact-bigbox">
+                      <div class="workik-contact-box">
+                          <div class="phone text-box" data-aos="fade-right">
+                              <img class="contact-svg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ET21.jpg">
+                              <p class="contact-text">+1258 3258 5679</p>
+                          </div>
+                          <div class="address text-box" data-aos="fade-right">
+                              <img class="contact-svg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ET22.jpg">
+                              <p class="contact-text">hello@workik.com</p>
+                          </div>
+                          <div class="mail text-box" data-aos="fade-right">
+                              <img class="contact-svg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/ET23.jpg">
+                              <p class="contact-text">102 street, y cross 485656</p>
+                          </div>
+                      </div>
+                      <div class="social-media-links" data-aos="fade-up">
+                          <a href=""><img class="social-svg" id="is9ym" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/gray-mail.svg"></a>
+                          <a href=""><img class="social-svg" id="i706n" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/gray-twitter.svg"></a>
+                          <a href=""><img class="social-svg" id="ib9ve" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/gray-insta.svg"></a>
+                          <a href=""><img class="social-svg" id="ie9fx" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/gray-fb.svg"></a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+{%endif%}
+<!--------------------------------user home page------------------------------>
+{% if current_user.is_authenticated and current_user.account_type == 'admin' %}
+
+<div class="card-container">
+<div class="e-card playing">
+  <div class="image"></div>
+
+  <div class="wave"></div>
+  <div class="wave"></div>
+  <div class="wave"></div>
+
+
+      <div class="infotop">
+
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="icon">
+  <path fill="currentColor" d="M19.4133 4.89862L14.5863 2.17544C12.9911 1.27485 11.0089 1.27485 9.41368 2.17544L4.58674
+  4.89862C2.99153 5.7992 2 7.47596 2 9.2763V14.7235C2 16.5238 2.99153 18.2014 4.58674 19.1012L9.41368
+  21.8252C10.2079 22.2734 11.105 22.5 12.0046 22.5C12.6952 22.5 13.3874 22.3657 14.0349 22.0954C14.2204
+  22.018 14.4059 21.9273 14.5872 21.8252L19.4141 19.1012C19.9765 18.7831 20.4655 18.3728 20.8651
+  17.8825C21.597 16.9894 22 15.8671 22 14.7243V9.27713C22 7.47678 21.0085 5.7992 19.4133 4.89862ZM4.10784
+  14.7235V9.2763C4.10784 8.20928 4.6955 7.21559 5.64066 6.68166L10.4676 3.95848C10.9398 3.69152 11.4701
+  3.55804 11.9996 3.55804C12.5291 3.55804 13.0594 3.69152 13.5324 3.95848L18.3593 6.68166C19.3045 7.21476
+  19.8922 8.20928 19.8922 9.2763V9.75997C19.1426 9.60836 18.377 9.53091 17.6022 9.53091C14.7929 9.53091
+  12.1041 10.5501 10.0309 12.3999C8.36735 13.8847 7.21142 15.8012 6.68783 17.9081L5.63981 17.3165C4.69466
+  16.7834 4.10699 15.7897 4.10699 14.7235H4.10784ZM10.4676 20.0413L8.60933 18.9924C8.94996 17.0479 9.94402
+  15.2665 11.4515 13.921C13.1353 12.4181 15.3198 11.5908 17.6022 11.5908C18.3804 11.5908 19.1477 11.6864
+  19.8922 11.8742V14.7235C19.8922 15.2278 19.7589 15.7254 19.5119 16.1662C18.7615 15.3596 17.6806 14.8528
+   16.4783 14.8528C14.2136 14.8528 12.3781 16.6466 12.3781 18.8598C12.3781 19.3937 12.4861 19.9021 12.68
+   20.3676C11.9347 20.5316 11.1396 20.4203 10.4684 20.0413H10.4676Z"></path></svg><br>
+  All Users
+<br>
+<div class="name"></div>
+  </div>
+</div>
+
+
+<div class="e-card playing">
+  <div class="image"></div>
+
+  <div class="wave"></div>
+  <div class="wave"></div>
+  <div class="wave"></div>
+
+
+      <div class="infotop">
+
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="icon">
+  <path fill="currentColor" d="M19.4133 4.89862L14.5863 2.17544C12.9911 1.27485 11.0089 1.27485 9.41368 2.17544L4.58674
+  4.89862C2.99153 5.7992 2 7.47596 2 9.2763V14.7235C2 16.5238 2.99153 18.2014 4.58674 19.1012L9.41368
+  21.8252C10.2079 22.2734 11.105 22.5 12.0046 22.5C12.6952 22.5 13.3874 22.3657 14.0349 22.0954C14.2204
+  22.018 14.4059 21.9273 14.5872 21.8252L19.4141 19.1012C19.9765 18.7831 20.4655 18.3728 20.8651
+  17.8825C21.597 16.9894 22 15.8671 22 14.7243V9.27713C22 7.47678 21.0085 5.7992 19.4133 4.89862ZM4.10784
+  14.7235V9.2763C4.10784 8.20928 4.6955 7.21559 5.64066 6.68166L10.4676 3.95848C10.9398 3.69152 11.4701
+  3.55804 11.9996 3.55804C12.5291 3.55804 13.0594 3.69152 13.5324 3.95848L18.3593 6.68166C19.3045 7.21476
+  19.8922 8.20928 19.8922 9.2763V9.75997C19.1426 9.60836 18.377 9.53091 17.6022 9.53091C14.7929 9.53091
+  12.1041 10.5501 10.0309 12.3999C8.36735 13.8847 7.21142 15.8012 6.68783 17.9081L5.63981 17.3165C4.69466
+  16.7834 4.10699 15.7897 4.10699 14.7235H4.10784ZM10.4676 20.0413L8.60933 18.9924C8.94996 17.0479 9.94402
+  15.2665 11.4515 13.921C13.1353 12.4181 15.3198 11.5908 17.6022 11.5908C18.3804 11.5908 19.1477 11.6864
+  19.8922 11.8742V14.7235C19.8922 15.2278 19.7589 15.7254 19.5119 16.1662C18.7615 15.3596 17.6806 14.8528
+   16.4783 14.8528C14.2136 14.8528 12.3781 16.6466 12.3781 18.8598C12.3781 19.3937 12.4861 19.9021 12.68
+   20.3676C11.9347 20.5316 11.1396 20.4203 10.4684 20.0413H10.4676Z"></path></svg><br>
+  Prediction History
+<br>
+<div class="name"></div>
+  </div>
+</div>
+
+
+<div class="e-card playing">
+  <div class="image"></div>
+
+  <div class="wave"></div>
+  <div class="wave"></div>
+  <div class="wave"></div>
+
+
+      <div class="infotop">
+
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="icon">
+  <path fill="currentColor" d="M19.4133 4.89862L14.5863 2.17544C12.9911 1.27485 11.0089 1.27485 9.41368 2.17544L4.58674
+  4.89862C2.99153 5.7992 2 7.47596 2 9.2763V14.7235C2 16.5238 2.99153 18.2014 4.58674 19.1012L9.41368
+  21.8252C10.2079 22.2734 11.105 22.5 12.0046 22.5C12.6952 22.5 13.3874 22.3657 14.0349 22.0954C14.2204
+  22.018 14.4059 21.9273 14.5872 21.8252L19.4141 19.1012C19.9765 18.7831 20.4655 18.3728 20.8651
+  17.8825C21.597 16.9894 22 15.8671 22 14.7243V9.27713C22 7.47678 21.0085 5.7992 19.4133 4.89862ZM4.10784
+  14.7235V9.2763C4.10784 8.20928 4.6955 7.21559 5.64066 6.68166L10.4676 3.95848C10.9398 3.69152 11.4701
+  3.55804 11.9996 3.55804C12.5291 3.55804 13.0594 3.69152 13.5324 3.95848L18.3593 6.68166C19.3045 7.21476
+  19.8922 8.20928 19.8922 9.2763V9.75997C19.1426 9.60836 18.377 9.53091 17.6022 9.53091C14.7929 9.53091
+  12.1041 10.5501 10.0309 12.3999C8.36735 13.8847 7.21142 15.8012 6.68783 17.9081L5.63981 17.3165C4.69466
+  16.7834 4.10699 15.7897 4.10699 14.7235H4.10784ZM10.4676 20.0413L8.60933 18.9924C8.94996 17.0479 9.94402
+  15.2665 11.4515 13.921C13.1353 12.4181 15.3198 11.5908 17.6022 11.5908C18.3804 11.5908 19.1477 11.6864
+  19.8922 11.8742V14.7235C19.8922 15.2278 19.7589 15.7254 19.5119 16.1662C18.7615 15.3596 17.6806 14.8528
+   16.4783 14.8528C14.2136 14.8528 12.3781 16.6466 12.3781 18.8598C12.3781 19.3937 12.4861 19.9021 12.68
+   20.3676C11.9347 20.5316 11.1396 20.4203 10.4684 20.0413H10.4676Z"></path></svg><br>
+    Edit Profile
+<br>
+<div class="name"></div>
+  </div>
+</div>
+  </div>
+{% endif %}
+
+{% endblock %}
+
+

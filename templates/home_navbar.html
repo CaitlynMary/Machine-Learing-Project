@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+             <!-- jQuery 3.6.0 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {%block title%}
+            {%endblock%}
+            <link rel="stylesheet" type="text/css" href="./static/source/css/style.css">
+
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='source/css/bootstrap.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='source/myfont/css/all.min.css')}}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    jQuery 3.6.0
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+
+.modal-header {
+  background-color: #f7f7f7; /* Background color of the modal header */
+}
+
+.modal-title {
+  color: #36014f; /* Text color for the modal title */
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; /* Font style for the modal title */
+  font-size: 22px; /* Font size for the modal title */
+}
+
+.modal-title .fa-user {
+  color: #410178; /* Color of the Font Awesome icon */
+  margin-right: 10px; /* Space between the icon and the text */
+}
+
+.modal-title .fa-edit {
+  color: #410178; /* Color of the Font Awesome icon */
+  margin-right: 10px; /* Space between the icon and the text */
+}
+.modal-title .fa-users {
+  color: #410178; /* Color of the Font Awesome icon */
+  margin-right: 10px; /* Space between the icon and the text */
+}
+
+.modal-dialog{
+    width:30%;
+             }
+.modal-body{
+     padding:30px;
+    }
+</style>
+ </head>
+    <body>
+       
+
+         <header class="header">
+            <div class="navbar-left">
+                <a href="#" class="navbar-brand">
+                    <img src="{{url_for('static',filename='source//image//fn1.webp')}}"  class="brand-logo"> Fake News Detection</a>
+            </div>
+
+            <nav >
+                <ul>
+                    <li><a href="{{url_for('index')}}"><i class="fa fa-home"></i>Home</a></li>
+                    {% if not current_user.is_authenticated or current_user.account_type != 'admin' %}
+                        <li><a href="#about-us">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    {% endif %}
+
+                     {% if current_user.is_authenticated and current_user.account_type == 'admin' %}
+                    <li><a href="#All user">All users</a></li>
+                    <li><a href="#History">History</a></li>
+                     {%endif%}
+
+                    {% if not current_user.is_authenticated or current_user.account_type == 'admin' %}
+                    <li><a href="#" data-toggle="modal" data-target="#signup" class="signup-link">Signup</a></li>
+                    {%endif%}
+                    {% if not current_user.is_authenticated%}
+                    <li><a href="#" data-toggle="modal" data-target="#log" class="logins">Login</a></li>
+                    {%endif%}
+                    {% if current_user.is_authenticated%}
+                    <li><a href="{{url_for('logout')}}" class="logins">Logout</a></li>
+                    {%endif%}
+                </ul>
+            </nav>
+        </header>
+<!--------------------------signup----------------------------------------------------------------->
+    <!-- <div class="modal fade" id="signup" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="text-primary text-center modal-title"><span class="fa fa-edit"></span>SignUp</h4>
+                </div>
+                <div class="modal-body" style="margin-bottom:30px;">
+                    <form method="POST" action="{{url_for('signup')}}">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" class="form-control" placeholder="Name" name="uname" autocomplete="off" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" class="form-control" placeholder="password" name="upass" autocomplete="off" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Contact</label>
+                            <input type="text" class="form-control" placeholder="contact" name="ucontact" autocomplete="off" required>
+                        </div>
+                        <div class="form-group">
+                            <label>E-Mail</label>
+                            <input type="text" class="form-control" placeholder="Mail" name="umail" autocomplete="off" required>
+                        </div>
+                        {% if current_user.is_authenticated and current_user.account_type == 'admin' %}
+                        <div class="form-group">
+                            <label>Type</label>
+                             <label>
+                                    <input type="radio" name="utype" value="admin"> Admin
+                             </label>
+                            <label>
+                                <input type="radio" name="utype" value="user"> User
+                            </label>
+                        </div>
+                        {%endif%}
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-primary pull-right" name="register" value="Register">
+                            <input type="reset" class="btn btn-danger pull-right" style="margin-right:10px" value="Clear"  >
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+     </div>-->
+         <div class="modal fade" id="signup" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="text-primary text-center modal-title"><span class="fa fa-edit"></span> SignUp</h4>
+            </div>
+            <div class="modal-body" style="margin-bottom:30px;">
+                <form method="POST" action="{{url_for('signup')}}">
+
+                    <!-- Name Validation: Letters and spaces only -->
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" class="form-control" placeholder="Name" name="uname" autocomplete="off" required
+                               pattern="[A-Za-z\s]+" title="Name should only contain letters and spaces">
+                    </div>
+
+                    <!-- Password Field -->
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control" placeholder="Password" name="upass" autocomplete="off" required>
+                    </div>
+
+                    <!-- Contact Validation: Numbers only, 10 digits -->
+                    <div class="form-group">
+                        <label>Contact</label>
+                        <input type="text" class="form-control" placeholder="Contact" name="ucontact" autocomplete="off" required
+                               pattern="\d{10}" title="Contact must be a 10-digit number">
+                    </div>
+
+                    <!-- Email Validation -->
+                    <div class="form-group">
+                        <label>E-Mail</label>
+                        <input type="email" class="form-control" placeholder="E-mail" name="umail" autocomplete="off" required>
+                    </div>
+
+                    <!-- Account Type Radio Buttons (Only for Admins) -->
+                    {% if current_user.is_authenticated and current_user.account_type == 'admin' %}
+                    <div class="form-group">
+                        <label>Type</label>
+                        <label>
+                            <input type="radio" name="utype" value="admin"> Admin
+                        </label>
+                        <label>
+                            <input type="radio" name="utype" value="user"> User
+                        </label>
+                    </div>
+                    {% endif %}
+
+                    <!-- Submit and Reset Buttons -->
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary pull-right" name="register" value="Register">
+                        <input type="reset" class="btn btn-danger pull-right" style="margin-right:10px" value="Clear">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-----------------------------user login-------------------------------------------->
+     <div class="modal fade" id="log" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="text-primary text-center modal-title"><span class="fa fa-users"></span>User Login</h4>
+                </div>
+                <div class="modal-body" style="margin-bottom:30px;">
+                    <form method="POST" action="{{url_for('login')}}">
+                        <div class="form-group">
+                            <label>E-mail</label>
+                            <input type="text" class="form-control" placeholder="User Name" name="email" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" class="form-control" placeholder="password" name="password" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-primary pull-right" name="login" value="login">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+     </div>
+
+
+    {% with messages = get_flashed_messages(with_categories=True) %}
+    <br><br><br><br>
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="alert alert-{{ category }} alert-dismissible fade in" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+  <!-- AOS JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+  <script>
+      AOS.init(); // Initialize AOS
+  </script>
+
+<script>
+    function closeAlert(alertElement) {
+        alertElement.classList.remove("show");
+        setTimeout(function() {
+            alertElement.style.display = "none";
+        }, 500);
+    }
+    
+</script>
+
+{%block content%}
+{%endblock%}
+
+<!--------------------------footer---------------------------------->
+{%if sticky%}
+<footer class="footer navbar-fixed-bottom">
+    {%else%}
+    <footer>
+    {%endif%}
+<p>&copy; 2024 fakenews. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+
+
+
+
+
+<!--------------navbar------------------------------------------>
+<!--New html page on Codepen.io-->
+<!--HTml site in cyber network-->
+...
+     -->
+
+
+<!--Html pade and program codes the end...-->
