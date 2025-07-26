@@ -1,1 +1,16 @@
+# Ignore virtual environment
 venv/
+
+# Ignore large binary files
+*.exe
+*.dll
+*.pyd
+
+# Ignore dataset or CSV files
+*.csv
+
+# Ignore model files (if any)
+*.h5
+*.pkl
+*.joblib
+
