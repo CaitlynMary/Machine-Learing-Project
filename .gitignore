@@ -1,16 +1,14 @@
-# Ignore virtual environment
-venv/
 
-# Ignore large binary files
+  GNU nano 8.2                       .gitignore
+venv/
 *.exe
 *.dll
 *.pyd
-
-# Ignore dataset or CSV files
 *.csv
+__pycache__/
+*.log
+*.zip
+*.tar
+*.rar
 
-# Ignore model files (if any)
-*.h5
-*.pkl
-*.joblib
 
