@@ -1,14 +1,30 @@
 
-  GNU nano 8.2                       .gitignore
-venv/
-*.exe
-*.dll
-*.pyd
-*.csv
+# Ignore Python bytecode and cache
 __pycache__/
-*.log
-*.zip
-*.tar
-*.rar
+*.pyc
+
+# Ignore model files
+*.pkl
+*.sav
+*.h5
+
+# Ignore CSV or data files
+*.csv
+
+# Ignore Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Ignore IDE/project settings
+.idea/
+.vscode/
+
+# Ignore environment folders
+env/
+venv/
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
 
 
